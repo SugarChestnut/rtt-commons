@@ -8,7 +8,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
-import java.util.HashMap;
 
 /**
  * @author rtt
@@ -23,7 +22,6 @@ public class Rsa {
     }
 
     public static SecretKey createSecretKey(RsaConfig config) throws NoSuchAlgorithmException {
-        new HashMap(2);
         KeyPairGenerator rsa = KeyPairGenerator.getInstance("RSA");
         rsa.initialize(config.getKeySize());
         KeyPair keyPair = rsa.generateKeyPair();
@@ -152,7 +150,7 @@ public class Rsa {
         }
     }
 
-    public static enum RsaConfig {
+    public enum RsaConfig {
         RSA1024(1024, 117, 128),
         RSA2048(2048, 245, 256),
         RSA4096(4096, 501, 512);
@@ -161,7 +159,7 @@ public class Rsa {
         private final int maxEncryptSize;
         private final int maxDecryptSize;
 
-        private RsaConfig(int keySize, int maxEncryptSize, int maxDecryptSize) {
+        RsaConfig(int keySize, int maxEncryptSize, int maxDecryptSize) {
             this.keySize = keySize;
             this.maxEncryptSize = maxEncryptSize;
             this.maxDecryptSize = maxDecryptSize;
@@ -180,13 +178,13 @@ public class Rsa {
         }
     }
 
-    public static enum SignatureAlgorithm {
+    public enum SignatureAlgorithm {
         SHA256WithRSA("SHA256WithRSA"),
         MD5withRSA("MD5withRSA");
 
         private final String algorithm;
 
-        private SignatureAlgorithm(String algorithm) {
+        SignatureAlgorithm(String algorithm) {
             this.algorithm = algorithm;
         }
 

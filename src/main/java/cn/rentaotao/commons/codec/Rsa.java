@@ -284,7 +284,8 @@ public class Rsa {
      */
     public enum SignatureAlgorithm {
         SHA256WithRSA("SHA256WithRSA"),
-        MD5withRSA("MD5withRSA");
+        MD5withRSA("MD5withRSA"),
+        RsaSha384("SHA384WithRSA");
 
         private final String algorithm;
 

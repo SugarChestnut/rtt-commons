@@ -18,9 +18,9 @@ public class RsaTest {
         // 加密
         String encrypt = Rsa.encryptByPublicKey(str, secretKey.getPublicKey(), Rsa.RsaConfig.RSA1024);
         // 签名
-        String sign = Rsa.sign(encrypt, secretKey.getPrivateKey(), Rsa.SignatureAlgorithm.MD5withRSA);
+        String sign = Rsa.sign(encrypt, secretKey.getPrivateKey(), Rsa.SignatureAlgorithm.RsaSha384);
         // 验签
-        assertTrue(Rsa.verify(encrypt, sign, secretKey.getPublicKey(), Rsa.SignatureAlgorithm.MD5withRSA));
+        assertTrue(Rsa.verify(encrypt, sign, secretKey.getPublicKey(), Rsa.SignatureAlgorithm.RsaSha384));
         // 解密
         assertEquals(str, Rsa.decryptByPrivateKey(encrypt, secretKey.getPrivateKey(), Rsa.RsaConfig.RSA1024));
     }

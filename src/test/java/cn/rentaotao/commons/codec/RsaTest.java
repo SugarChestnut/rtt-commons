@@ -12,7 +12,7 @@ public class RsaTest {
 
     @Test
     public void test() throws Exception {
-        String str = "昨天山西大部气温骤降，局地降幅近30℃，一天之内完成“夏返冬”。";
+        String str = "昨天山西大部气温骤降，局地降幅近30℃，一天之内完成“夏返冬 https://www.baidu.com”。";
         // 生成秘钥对
         Rsa.SecretKey secretKey = Rsa.createSecretKey(Rsa.RsaConfig.RSA1024);
         // 加密

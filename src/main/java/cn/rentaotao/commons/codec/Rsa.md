@@ -95,7 +95,8 @@ public class RsaTest {
     @Test
     public void test() throws Exception {
         String str = "昨天山西大部气温骤降，局地降幅近30℃，一天之内完成“夏返冬”。";
-        // 生成秘钥对
+        // 测试用例中使用生成的密钥对
+        // 实际使用中，从配置文件中读取密钥对
         Rsa.SecretKey secretKey = Rsa.createSecretKey(Rsa.RsaConfig.RSA1024);
         // 公钥加密
         String encrypt = Rsa.encryptByPublicKey(str, secretKey.getPublicKey(), Rsa.RsaConfig.RSA1024);
